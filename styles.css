@@ -244,10 +244,6 @@ h1 {
     padding: 150px 5% 60px 5%;
 }
 
-.card {
-    display: flex;
-    flex-direction: column;
-}
 
 .image-container {
     width: 100%;
@@ -486,6 +482,10 @@ h1 {
         top: 8px;
         right: 10px;
     }
+
+    .grid-container {
+        padding: 100px 5% 60px 5%;
+        grid-template-columns: 1fr;
 }
 
 .social-links {
