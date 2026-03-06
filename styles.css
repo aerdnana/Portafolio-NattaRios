@@ -486,6 +486,7 @@ h1 {
     .grid-container {
         padding: 100px 5% 60px 5%;
         grid-template-columns: 1fr;
+    }
 }
 
 .social-links {
