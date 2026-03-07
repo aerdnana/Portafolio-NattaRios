@@ -340,6 +340,13 @@ h1 {
     cursor: pointer;
 }
 
+.gallery-video {
+    width: 100%;
+    height: auto;
+    display: block; 
+    aspect-ratio: 16 / 9;
+}
+
 .gallery-img:hover {
     opacity: 0.95;
 }
