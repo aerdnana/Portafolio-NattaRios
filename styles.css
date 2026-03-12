@@ -47,7 +47,7 @@
 
 .nav-links a {
     text-decoration: none;
-    color: #feffda;
+    color: #ffffff;
     font-size: 16px;
     transition: color 0.3s ease;
 }
@@ -127,7 +127,7 @@ body {
 
 h1 {
     font-size: 10vmin;
-    color: #feffda;  
+    color: #ffffff;  
     text-align: left;
     font-family: 'KMR Waldenburg', sans-serif;
     font-weight: 700;
@@ -220,7 +220,7 @@ h1 {
 }
 
 .info-content p {
-    color: #feffda;
+    color: #ffffff;
     font-size: 1.2rem;
     line-height: 1.8;
     max-width: 800px;
@@ -302,14 +302,14 @@ h1 {
 
 .project-description h2 {
     font-size: 3rem;
-    color: #feffda;
+    color: #ffffff;
     margin-top: 0;       
     margin-bottom: 15px; 
     font-weight: 700;
 }
 
 .project-description p {
-    color: #feffda;
+    color: #ffffff;
     font-size: 1.1rem;
     line-height: 1.6;
     margin: 0;
@@ -396,7 +396,7 @@ h1 {
     position: fixed;
     top: 20px;
     right: 30px;
-    color: #feffda;
+    color: #ffffff;
     font-size: 40px;
     font-weight: bold;
     cursor: pointer;
