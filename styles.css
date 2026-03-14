@@ -53,11 +53,11 @@
 }
 
 .nav-links a:hover {
-    color: rgb(0, 0, 0);
+    color: #252525;
 }
 
 .nav-links a.active {
-    color: rgb(0, 0, 0);
+    color: #252525;
     font-weight: bold;
 }
 
@@ -75,6 +75,7 @@ body {
     top: 0;
     left: 0;
     z-index: 1;
+    pointer-events: none;
 }
 
 @keyframes fade {
@@ -127,7 +128,7 @@ body {
 
 h1 {
     font-size: 10vmin;
-    color: #ffffff;  
+    color: #fffffc;  
     text-align: left;
     font-family: 'KMR Waldenburg', sans-serif;
     font-weight: 700;
@@ -206,10 +207,38 @@ h1 {
   }
 }
 
+.project {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    width: 100%;
+}
+
+.project-items {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+}
+
+.project-link {
+    text-decoration: none;
+    color: #fffffc;
+    font-size: 2.5rem;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+.project-link:hover {
+    color: #ffa6a6;
+    transform: scale(1.15);
+}
+
 .info-page {
     overflow-y: auto;
     height: auto;
-    background-color: #000;
+    background-color: #252525;
 }
 
 .info-content {
@@ -228,7 +257,7 @@ h1 {
 }
 
 .info-body {
-    background-color: #0a0a0a;
+    background-color: #252525;
     overflow-y: auto;
     height: auto;
     min-height: 100vh;
@@ -269,23 +298,23 @@ h1 {
     font-size: 1rem;
     margin: 15px 0 5px 0;
     font-weight: bold;
-    color: #feffda;
+    color: #fffffc;
     text-decoration: none;
 }
 
 .info p {
     font-size: 0.85rem;
-    color: #feffda; 
+    color: #fffffc; 
     margin: 0;
     text-decoration: none;
 }
 
 .info h3 a:hover {
-    color: rgb(143, 136, 136);
+    color: #252525;
 }
 
 .info .active {
-    color: rgb(0, 0, 0);
+    color: #252525;
     font-weight: bold;
 }
 
@@ -302,14 +331,14 @@ h1 {
 
 .project-description h2 {
     font-size: 3rem;
-    color: #ffffff;
+    color: #fffffc;
     margin-top: 0;       
     margin-bottom: 15px; 
     font-weight: 700;
 }
 
 .project-description p {
-    color: #ffffff;
+    color: #fffffc;
     font-size: 1.1rem;
     line-height: 1.6;
     margin: 0;
@@ -359,7 +388,7 @@ h1 {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.95);
+    background-color: #252525;
     animation: fadeIn 0.3s ease;
 }
 
@@ -396,7 +425,7 @@ h1 {
     position: fixed;
     top: 20px;
     right: 30px;
-    color: #ffffff;
+    color: #fffffc;
     font-size: 40px;
     font-weight: bold;
     cursor: pointer;
@@ -407,7 +436,7 @@ h1 {
 }
 
 .close:hover {
-    color: rgb(143, 136, 136);
+    color: #252525;
 }
 
 
