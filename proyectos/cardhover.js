@@ -6,13 +6,29 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!videoSrc) { return; }
 
         const imgcontainer = card.querySelector('.image-container');
+        if (!imgcontainer) { return; }
+
+        const safeVideoSrc = encodeURI(videoSrc);
 
         card.addEventListener('mouseenter', () => {
             const video = document.createElement('video');
-            video.src = videoSrc;
+            video.src = safeVideoSrc;
             video.autoplay = true;
             video.muted = true;
             video.loop = true;
+            video.playsInline = true;
+            video.preload = 'auto';
+
+            video.addEventListener('loadedmetadata', () => {
+                video.currentTime = 0;
+                video.play().catch(err => {
+                    console.warn('[cardhover] play failed', safeVideoSrc, err);
+                });
+            });
+
+            video.addEventListener('error', (e) => {
+                console.error('[cardhover] video load error', safeVideoSrc, e);
+            });
 
             Object.assign(video.style, {
                 position: 'absolute',
