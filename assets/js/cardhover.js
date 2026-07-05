@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
             video.muted = true;
             video.loop = true;
             video.playsInline = true;
-            video.preload = 'auto';
+            video.preload = 'metadata';
 
             video.addEventListener('loadedmetadata', () => {
                 video.currentTime = 0;

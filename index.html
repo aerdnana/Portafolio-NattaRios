@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Renatta Rios</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="img/Logo.png">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="icon" href="assets/img/logos/Logo.png">
+    <link rel="preload" as="image" href="assets/img/webp/Cinthya Miranda/Cinthya Miranda.webp" fetchpriority="high">
 </head>
 <body>
 
 <nav class="navbar">
     <div class="nav-logo">
         <a href="./">
-            <img src="img/logoblanco.png" alt="Logo">
+            <img decoding="async" src="assets/img/logos/logoblanco.png" alt="Logo">
         </a>
     </div>
     <ul class="nav-links">
@@ -23,13 +24,13 @@
     <div class="nav-spacer"></div>
 </nav>
 
-<div class="container">
-    <img src="img/Cinthya Miranda/Cinthya Miranda.jpg">
-    <img src="img/Pura VIolencia BTS/PuraViolencia (11).jpg">
-    <video autoplay muted loop playsinline>
-        <source src="img/MotionGraphics/DiasPerfectos/CUANTO DE MI VISUAL.mp4" type="video/mp4">
-        </video>
-    <img src="img/Copia de fcb494199492223.6652be73b098f.jpg">
+<div class="container" aria-hidden="true">
+    <img class="hero-media" src="assets/img/webp/Cinthya Miranda/Cinthya Miranda.webp" alt="" fetchpriority="high" decoding="async">
+    <img class="hero-media" src="assets/img/webp/Pura VIolencia BTS/PuraViolencia (11).webp" alt="" decoding="async">
+    <video class="hero-media" autoplay muted loop playsinline preload="auto">
+        <source src="./assets/video/optimized/MotionGraphics/DiasPerfectos/CUANTO DE MI VISUAL.mp4" type="video/mp4">
+    </video>
+    <img class="hero-media" src="assets/img/webp/Copia de fcb494199492223.6652be73b098f.webp" alt="" decoding="async">
 </div>
 
 <div class="content-wrapper">

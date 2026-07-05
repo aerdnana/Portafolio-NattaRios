@@ -1,10 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
     const links = document.querySelectorAll('.project-link');
-    const container = document.querySelector('.project') || document.body;
+    const container = document.body;
 
     const hoverBg = document.createElement('div');
+    hoverBg.className = 'project-hover-media';
     Object.assign(hoverBg.style, {
-        position: 'absolute',
+        position: 'fixed',
         top: '0',
         left: '0',
         width: '100%',
@@ -13,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         backgroundPosition: 'center',
         opacity: '0',
         transition: 'opacity 0.3s ease',
-        zIndex: '-1',
+        zIndex: '0',
         pointerEvents: 'none'
     });
     container.appendChild(hoverBg);
@@ -31,22 +32,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (isVideo) {
                 const video = document.createElement('video');
-                video.classList.add('temp-video'); 
+                video.className = 'temp-video project-hover-media';
                 Object.assign(video.style, {
-                    position: 'absolute',
+                    position: 'fixed',
                     top: '0',
                     left: '0',
                     width: '100%',
                     height: '100%',
                     objectFit: 'cover',
-                    zIndex: '-1',
+                    zIndex: '0',
+                    opacity: '0',
+                    transition: 'opacity 0.3s ease',
                     pointerEvents: 'none'
                 });
-                video.src = mediaSrc;
+                video.src = encodeURI(mediaSrc);
+                video.autoplay = true;
                 video.muted = true;
                 video.loop = true;
-                video.play();
+                video.playsInline = true;
+                video.preload = 'auto';
                 container.appendChild(video);
+                requestAnimationFrame(() => {
+                    video.style.opacity = '1';
+                    video.play().catch(err => {
+                        console.warn('[hover] video play failed', mediaSrc, err);
+                    });
+                });
                 link.videoElement = video;
                 hoverBg.style.opacity = '0';
             } else {
