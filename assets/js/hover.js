@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
         link.addEventListener('mouseenter', () => {
             const mediaSrc = link.getAttribute('data-img');
             if (!mediaSrc) return;
+            const mediaUrl = new URL(mediaSrc, window.location.href).href;
 
             const oldVideo = container.querySelector('video.temp-video');
             if (oldVideo) oldVideo.remove();
@@ -45,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     transition: 'opacity 0.3s ease',
                     pointerEvents: 'none'
                 });
-                video.src = encodeURI(mediaSrc);
+                video.src = mediaUrl;
                 video.autoplay = true;
                 video.muted = true;
                 video.loop = true;
@@ -61,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 link.videoElement = video;
                 hoverBg.style.opacity = '0';
             } else {
-                hoverBg.style.backgroundImage = `url("${encodeURI(mediaSrc)}")`;
+                hoverBg.style.backgroundImage = `url("${mediaUrl}")`;
                 hoverBg.style.opacity = '1';
             }
         });
