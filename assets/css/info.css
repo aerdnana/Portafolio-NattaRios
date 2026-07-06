@@ -1,0 +1,28 @@
+.info-page {
+    overflow-y: auto;
+    height: auto;
+    background-color: #252525;
+}
+
+.info-content {
+    margin-top: 150px;
+    padding: 0 10%;
+    display: flex;
+    justify-content: center;
+}
+
+.info-content p {
+    color: #ffffff;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    max-width: 800px;
+    text-align: left;
+}
+
+.info-body {
+    background-color: #111111;
+    overflow-y: auto;
+    height: auto;
+    min-height: 100vh;
+    margin: 0;
+}

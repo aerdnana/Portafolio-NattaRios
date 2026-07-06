@@ -1,0 +1,30 @@
+.social-links {
+    margin-top: 30px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.social-links a img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    display: block;
+    transition: opacity 0.2s ease;
+}
+
+.social-links a:hover img {
+    opacity: 0.7;
+}
+
+footer.social-links {
+    margin: 40px auto;
+    text-align: left;
+}
+
+footer.social-links a img {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    transition: opacity 0.2s;
+}

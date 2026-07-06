@@ -1,0 +1,214 @@
+.project {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 110px);
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.project-items {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.project-link {
+    text-decoration: none;
+    color: #fffffc;
+    font-size: 2.5rem;
+    font-weight: 700;
+    transition: color 0.8s ease;
+}
+
+.project-link:hover {
+    color: #000000;
+    transform: scale(1.20);
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 150px 5% 60px 5%;
+}
+
+.image-container {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    cursor: pointer;
+    aspect-ratio: 4 / 3;
+}
+
+.card {
+    content-visibility: auto;
+    contain-intrinsic-size: 360px 320px;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.3s ease;
+}
+
+.image-container img:hover {
+    transform: scale(1.02);
+}
+
+.info h3,
+.info a {
+    font-size: 1rem;
+    margin: 15px 0 5px 0;
+    font-weight: bold;
+    color: #fffffc;
+    text-decoration: none;
+}
+
+.info p {
+    font-size: 0.85rem;
+    color: #fffffc;
+    margin: 0;
+    text-decoration: none;
+}
+
+.info h3 a:hover {
+    color: #a3a3a3;
+}
+
+.info .active {
+    color: #252525;
+    font-weight: bold;
+}
+
+.project-page {
+    padding-top: 60px;
+    padding-bottom: 30px;
+}
+
+.project-description {
+    max-width: 1000px;
+    margin: 0 auto 30px;
+    text-align: left;
+}
+
+.project-description h2 {
+    font-size: 3rem;
+    color: #fffffc;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.project-description p {
+    color: #fffffc;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.gallery-item {
+    width: 100%;
+    height: auto;
+    display: block;
+    overflow: hidden;
+    content-visibility: auto;
+    contain-intrinsic-size: 1000px 700px;
+}
+
+.gallery-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.gallery-video {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 16 / 9;
+}
+
+.gallery-img:hover {
+    opacity: 0.95;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #161616cc;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    max-width: 95vw;
+    max-height: 95vh;
+    object-fit: contain;
+    animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.close {
+    position: fixed;
+    top: 20px;
+    right: 30px;
+    color: #fffffc;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    z-index: 10001;
+    background: none;
+    border: none;
+}
+
+.close:hover {
+    color: #252525;
+}
