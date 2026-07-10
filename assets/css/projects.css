@@ -125,6 +125,10 @@
     object-position: center;
 }
 
+.mobile-work-bg {
+    display: none;
+}
+
 .project-page {
     padding-top: 60px;
     padding-bottom: 30px;
