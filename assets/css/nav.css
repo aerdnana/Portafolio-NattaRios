@@ -23,15 +23,25 @@
     width: auto;
 }
 
+.nav-logo a {
+    color: #ffffff;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.nav-logo strong {
+    font-weight: 700;
+}
+
 .nav-links {
     list-style: none;
     display: flex;
-    justify-content: center;
-    flex: 2;
+    justify-content: flex-end;
+    margin-left: auto;
 }
 
 .nav-spacer {
-    flex: 1;
+    display: none;
 }
 
 .nav-links li {
