@@ -121,14 +121,6 @@ h1 {
     margin-left: 2px;
 }
 
-.typewriter.thick::after {
-    border-right: 0.15em solid var(--caret);
-}
-
-.typewriter.nocaret::after {
-    border-right: 0;
-}
-
 @media (prefers-reduced-motion) {
     .typewriter::after {
         animation: none;

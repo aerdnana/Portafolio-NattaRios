@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fotografía</title>
+    <title>Visuales</title>
     <link rel="stylesheet" href="../../assets/css/styles.css">
     <link rel="icon" href="../../assets/img/logos/Logo.png">
 </head>
@@ -18,73 +18,47 @@
     <ul class="nav-links">
         <li><a href="../../">inicio</a></li>
         <li><a href="../../proyectos/">proyectos</a></li>
-        <li><a href="../../Info/">info</a></li> </ul>
+        <li><a href="../../Info/">info</a></li>
+    </ul>
     <div class="nav-spacer"></div>
 </nav>
 
-<main class="grid-container">
-        <div class="card" data-video="../../assets/video/optimized/MotionGraphics/DiasPerfectos/DIFUSOS FXB3.mp4">
-            <div class="image-container">
-                <a href="DiasPerfectos/">
-                <img loading="lazy" decoding="async" src="../../assets/img/webp/Dias Perfectos/DiasPerfectos (8).webp" alt="Proyecto">
-                </a>
-            </div>
-            <div class="info">
-                <h3><a href="DiasPerfectos/">Dias Perfectos</a></h3>
-                <p>Lanzamiento EP "Días Perfectos"</p>
-            </div>
+<main class="project-list-page">
+    <header class="category-heading">
+        <p>proyectos</p>
+        <h1>visuales</h1>
+    </header>
+
+    <section class="work-index" aria-label="Proyectos visuales">
+        <div class="work-list">
+            <a class="work-item" href="DiasPerfectos/" data-preview="../../assets/video/optimized/MotionGraphics/DiasPerfectos/DIFUSOS FXB3.mp4">
+                <span class="work-title">Días Perfectos</span>
+                <span class="work-meta">Lanzamiento EP "Días Perfectos"</span>
+            </a>
+            <a class="work-item" href="LAD/" data-preview="../../assets/video/optimized/MotionGraphics/LAD/LADFEST_2025_RA_1728x912.mp4">
+                <span class="work-title">Festival Latinoamericano</span>
+                <span class="work-meta">Banner punto visual</span>
+            </a>
+            <a class="work-item" href="FestivalCircular/" data-preview="../../assets/video/optimized/MotionGraphics/FestivalCircular/BANNER ART.webm">
+                <span class="work-title">Festival Circular 2025</span>
+                <span class="work-meta">Banner</span>
+            </a>
+            <a class="work-item" href="PuchoSet/" data-preview="../../assets/video/optimized/MotionGraphics/PuchoSet/video intriga-optimized.mp4">
+                <span class="work-title">Pucho Set</span>
+                <span class="work-meta">Identidad visual</span>
+            </a>
+            <a class="work-item" href="ConceptoConcierto/" data-preview="../../assets/video/optimized/MotionGraphics/ConceptoConcierto/NDSENCV3-optimized.mp4">
+                <span class="work-title">Noche de Sábado en Capital</span>
+                <span class="work-meta">Visual promocional</span>
+            </a>
         </div>
 
-        <div class="card" data-video="../../assets/video/optimized/MotionGraphics/LAD/LADFEST_2025_RA_1728x912.mp4">
-            <div class="image-container">
-                <a href="LAD/">
-                <img loading="lazy" decoding="async" src="../../assets/img/webp/MotionGraphics/LAD/PORTADA.webp" alt="LAD">
-                </a>
-            </div>
-            <div class="info">
-                <h3><a href="LAD/">Festival Latinoamericano</a></h3>
-                <p>Banner Punto Visual</p>
-            </div>
-        </div>
+        <aside class="work-preview" aria-hidden="true">
+            <div class="work-preview-frame"></div>
+        </aside>
+    </section>
+</main>
 
-        <div class="card" data-video="../../assets/video/optimized/MotionGraphics/FestivalCircular/BANNER ART.webm">
-            <div class="image-container">
-                <a href="FestivalCircular/">
-                <img loading="lazy" decoding="async" src="../../assets/img/webp/MotionGraphics/FestivalCircular/POSTER 1.webp" alt="Banner">
-                </a>
-            </div>
-            <div class="info">
-                <h3><a href="FestivalCircular/">Festival Circular 2025</a></h3>
-                <p>Banner</p>
-            </div>
-        </div>
-
-        <div class="card" data-video="../../assets/video/optimized/MotionGraphics/PuchoSet/video intriga-optimized.mp4">
-            <div class="image-container">
-                <a href="PuchoSet/">
-                <img loading="lazy" decoding="async" src="../../assets/img/webp/MotionGraphics/PuchoSet/PORTADA.webp" alt="Pucho Set">
-                </a>
-            </div>
-            <div class="info">
-                <h3><a href="PuchoSet/">Pucho Set</a></h3>
-                <p>Identidad visual</p>
-            </div>
-        </div>
-
-        <div class="card" data-video="../../assets/video/optimized/MotionGraphics/ConceptoConcierto/NDSENCV3-optimized.mp4">
-            <div class="image-container">
-                <a href="ConceptoConcierto/">
-                <img loading="lazy" decoding="async" src="../../assets/img/webp/MotionGraphics/ConceptoConcierto/PORTADA.webp" alt="Concepto Concierto">
-                </a>
-            </div>
-            <div class="info">
-                <h3><a href="ConceptoConcierto/">Noche de Sábado en Capital</a></h3>
-                <p>Visual promocional</p>
-            </div>
-        </div>
-
-        </main>
-
-    <script src="../../assets/js/cardhover.js"></script>
-    </body>
+<script src="../../assets/js/category-preview.js"></script>
+</body>
 </html>

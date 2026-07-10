@@ -48,8 +48,3 @@
 .nav-links a:hover {
     color: #000000;
 }
-
-.nav-links a.active {
-    color: #000000;
-    font-weight: bold;
-}
