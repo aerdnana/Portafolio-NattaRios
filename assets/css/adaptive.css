@@ -29,7 +29,7 @@
         max-width: none;
     }
 
-    .project-description h2 {
+    .project-description h1 {
         font-size: 2.5rem;
     }
 
@@ -253,7 +253,7 @@
         font-size: 14px;
     }
 
-    .project-description h2 {
+    .project-description h1 {
         font-size: 1.5rem;
     }
 
