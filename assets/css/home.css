@@ -17,14 +17,14 @@
     left: 0;
     object-fit: cover;
     opacity: 0;
-    animation: fade 16s ease-in-out infinite;
+    animation: fade 32s ease-in-out infinite;
 }
 
 @keyframes fade {
     0% { opacity: 0; }
-    5% { opacity: 1; }
-    25% { opacity: 1; }
-    30% { opacity: 0; }
+    2.5% { opacity: 1; }
+    12.5% { opacity: 1; }
+    15% { opacity: 0; }
     100% { opacity: 0; }
 }
 
@@ -42,6 +42,22 @@
 
 .container .hero-media:nth-child(4) {
     animation-delay: 12s;
+}
+
+.container .hero-media:nth-child(5) {
+    animation-delay: 16s;
+}
+
+.container .hero-media:nth-child(6) {
+    animation-delay: 20s;
+}
+
+.container .hero-media:nth-child(7) {
+    animation-delay: 24s;
+}
+
+.container .hero-media:nth-child(8) {
+    animation-delay: 28s;
 }
 
 .content-wrapper {
