@@ -70,6 +70,10 @@
         opacity: 0.8;
     }
 
+    .project-menu-body .mobile-work-bg-media {
+        opacity: 1;
+    }
+
     .project-list-page {
         position: relative;
         z-index: 1;

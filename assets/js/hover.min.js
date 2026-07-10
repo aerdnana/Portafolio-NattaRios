@@ -33,6 +33,49 @@ document.addEventListener('DOMContentLoaded', () => {
         return cleanSrc.endsWith('.mp4') || cleanSrc.endsWith('.webm') || cleanSrc.endsWith('.mov');
     };
 
+    const getVideoRange = (link) => {
+        const start = Number.parseFloat(link.getAttribute('data-start'));
+        const end = Number.parseFloat(link.getAttribute('data-end'));
+
+        if (!Number.isFinite(start)) {
+            return null;
+        }
+
+        return {
+            start,
+            end: Number.isFinite(end) && end > start ? end : null
+        };
+    };
+
+    const applyVideoRange = (video, link) => {
+        const range = getVideoRange(link);
+        if (!range) return;
+
+        video.loop = false;
+
+        const seekToStart = () => {
+            if (Number.isFinite(video.duration)) {
+                video.currentTime = Math.min(range.start, Math.max(video.duration - 0.1, 0));
+            } else {
+                video.currentTime = range.start;
+            }
+        };
+
+        video.addEventListener('loadedmetadata', seekToStart, { once: true });
+        if (video.readyState >= 1) {
+            seekToStart();
+        }
+        video.addEventListener('timeupdate', () => {
+            if (range.end && video.currentTime >= range.end) {
+                video.currentTime = range.start;
+                video.play().catch(err => {
+                    console.warn('[hover] video play failed', link.getAttribute('data-img'), err);
+                });
+            }
+        });
+        video.addEventListener('ended', seekToStart);
+    };
+
     const createMedia = (link, className) => {
         const mediaSrc = link.getAttribute('data-img');
         if (!mediaSrc) return null;
@@ -48,6 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
             media.loop = true;
             media.playsInline = true;
             media.preload = 'metadata';
+            applyVideoRange(media, link);
         } else {
             media.src = mediaUrl;
             media.alt = '';
@@ -140,6 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 video.loop = true;
                 video.playsInline = true;
                 video.preload = 'auto';
+                applyVideoRange(video, link);
                 container.appendChild(video);
                 requestAnimationFrame(() => {
                     video.style.opacity = '1';
