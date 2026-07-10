@@ -1,6 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const links = document.querySelectorAll('.project-link');
+    const links = [...document.querySelectorAll('.project-link')];
     const container = document.body;
+    const mobileQuery = window.matchMedia('(max-width: 768px)');
+    const projectItems = document.querySelector('.project-items');
+    let activeLink = null;
+    let scrollFrame = null;
 
     const hoverBg = document.createElement('div');
     hoverBg.className = 'project-hover-media';
@@ -19,8 +23,92 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     container.appendChild(hoverBg);
 
+    const mobileBg = document.createElement('div');
+    mobileBg.className = 'mobile-work-bg';
+    mobileBg.setAttribute('aria-hidden', 'true');
+    container.appendChild(mobileBg);
+
+    const isVideo = (src) => {
+        const cleanSrc = src.split('?')[0].toLowerCase();
+        return cleanSrc.endsWith('.mp4') || cleanSrc.endsWith('.webm') || cleanSrc.endsWith('.mov');
+    };
+
+    const createMedia = (link, className) => {
+        const mediaSrc = link.getAttribute('data-img');
+        if (!mediaSrc) return null;
+
+        const mediaUrl = new URL(mediaSrc, window.location.href).href;
+        const media = document.createElement(isVideo(mediaSrc) ? 'video' : 'img');
+        media.className = className;
+
+        if (media.tagName === 'VIDEO') {
+            media.src = mediaUrl;
+            media.autoplay = true;
+            media.muted = true;
+            media.loop = true;
+            media.playsInline = true;
+            media.preload = 'metadata';
+        } else {
+            media.src = mediaUrl;
+            media.alt = '';
+            media.decoding = 'async';
+        }
+
+        return media;
+    };
+
+    const playMedia = (media, link) => {
+        if (media.tagName !== 'VIDEO') return;
+
+        media.play().catch(err => {
+            console.warn('[hover] video play failed', link.getAttribute('data-img'), err);
+        });
+    };
+
+    const setMobileBackground = (link) => {
+        const media = createMedia(link, 'mobile-work-bg-media');
+        if (!media) return;
+
+        mobileBg.replaceChildren(media);
+        playMedia(media, link);
+    };
+
+    const setActiveLink = (link) => {
+        if (!link || activeLink === link) return;
+
+        links.forEach(currentLink => {
+            currentLink.classList.toggle('is-active', currentLink === link);
+        });
+
+        activeLink = link;
+        setMobileBackground(link);
+    };
+
+    const updateActiveFromScroll = () => {
+        scrollFrame = null;
+
+        if (!mobileQuery.matches || !projectItems) return;
+
+        const listRect = projectItems.getBoundingClientRect();
+        const pickerCenter = listRect.top + listRect.height / 2;
+        const closestLink = links.reduce((closest, link) => {
+            const rect = link.getBoundingClientRect();
+            const distance = Math.abs(rect.top + rect.height / 2 - pickerCenter);
+            return distance < closest.distance ? { link, distance } : closest;
+        }, { link: links[0], distance: Number.POSITIVE_INFINITY }).link;
+
+        setActiveLink(closestLink);
+    };
+
+    const requestActiveUpdate = () => {
+        if (scrollFrame) return;
+        scrollFrame = requestAnimationFrame(updateActiveFromScroll);
+    };
+
     links.forEach(link => {
         link.addEventListener('mouseenter', () => {
+            if (mobileQuery.matches) return;
+
             const mediaSrc = link.getAttribute('data-img');
             if (!mediaSrc) return;
             const mediaUrl = new URL(mediaSrc, window.location.href).href;
@@ -29,9 +117,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if (oldVideo) oldVideo.remove();
 
             const lowerSrc = mediaSrc.toLowerCase();
-            const isVideo = lowerSrc.endsWith('.mp4') || lowerSrc.endsWith('.webm');
+            const linkIsVideo = lowerSrc.endsWith('.mp4') || lowerSrc.endsWith('.webm');
 
-            if (isVideo) {
+            if (linkIsVideo) {
                 const video = document.createElement('video');
                 video.className = 'temp-video project-hover-media';
                 Object.assign(video.style, {
@@ -68,11 +156,26 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         link.addEventListener('mouseleave', () => {
+            if (mobileQuery.matches) return;
+
             if (link.videoElement) {
                 link.videoElement.remove();
                 link.videoElement = null;
             }
             hoverBg.style.opacity = '0';
         });
+
+        link.addEventListener('click', (event) => {
+            if (!mobileQuery.matches || link === activeLink) return;
+
+            event.preventDefault();
+            setActiveLink(link);
+            link.scrollIntoView({ block: 'center', behavior: 'smooth' });
+        });
     });
+
+    projectItems?.addEventListener('scroll', requestActiveUpdate, { passive: true });
+    window.addEventListener('resize', requestActiveUpdate);
+    setActiveLink(links[0]);
+    requestActiveUpdate();
 });

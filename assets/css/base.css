@@ -26,4 +26,23 @@ body {
     padding: 0;
     height: 100vh;
     overflow: hidden;
+    background-color: #111111;
+}
+
+@keyframes pageFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.project,
+.project-list-page,
+.info-content,
+.project-page {
+    animation: pageFadeIn 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
