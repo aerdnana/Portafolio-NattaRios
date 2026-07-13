@@ -13,7 +13,7 @@ Portafolio web de Renatta Ríos para mostrar proyectos de fotografía, visuales 
 - CSS
 - JavaScript
 
-## Ver demo
+## Ver 
 
-https://aerdnana.github.io/Portafolio-NattaRios/
+Renattarios.com
 
